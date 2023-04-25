@@ -14,6 +14,9 @@
   <link href="https://fonts.googleapis.com/css2?family=Prompt:wght@100;400;700&display=swap" rel="stylesheet">
 
   <script src="https://unpkg.com/@phosphor-icons/web"></script>
+
+  <script src="./main.js" defer></script>
+
 </head>
 
 <body>
@@ -25,37 +28,37 @@
         <header>
           <img src="./assets/rocketseat.png" alt="rocketseat">
 
-          <span class="username">birobirobiro</span>
+          <span class="username" id="userLogin">birobirobiro</span>
         </header>
 
         <section class="profile">
-          <img src="https://github.com/diego3g.png" alt="foto de perfil">
+          <img src="https://github.com/birobirobiro.png" id="userImage" alt="foto de perfil">
         </section>
 
         <section class="infos">
           <div class="followers">
             <i class="ph-bold ph-user"></i>
-            <span>716 Seguidores</span>
+            <span id="userFollowers">716 Seguidores</span>
           </div>
 
           <div class="following">
             <i class="ph-bold ph-users"></i>
-            <span>193 Seguindo</span>
+            <span id="userFollowing">193 Seguindo</span>
           </div>
 
           <div class="repositories">
             <i class="ph-bold ph-book-bookmark"></i>
-            <span>193 Repositórios</span>
+            <span id="userRepositories">193 Repositórios</span>
           </div>
 
           <div class="work">
             <i class="ph-bold ph-buildings"></i>
-            <span>Rocketseat</span>
+            <span id="userCompany">Rocketseat</span>
           </div>
 
           <div class="city">
             <i class="ph-bold ph-map-pin"></i>
-            <span>Bebedouro</span>
+            <span id="userLocation">Bebedouro</span>
           </div>
         </section>
 
@@ -70,8 +73,12 @@
     <div class="container-button">
       <span>Customizar Rocketcard</span>
 
-      <div class="button">
+      <div class="button" onclick="randomColor()">
         <button>Gerar background</button>
+      </div>
+
+      <div class="button" onclick="newCard()">
+        <button>Gerar meu card</button>
       </div>
     </div>
   </div>

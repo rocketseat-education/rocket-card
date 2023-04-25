@@ -1,4 +1,5 @@
 const user = 'maykbrito'
+const card = document.querySelector('.card')
 
 function getGithubProfile(user) {
   const profile = `https://api.github.com/users/${user}`
@@ -18,8 +19,7 @@ function getGithubProfile(user) {
 
 function randomColor() {
   const color = "#" + (Math.round(Math.random() * 0XFFFFFF)).toString(16);
-
-  document.querySelector('.card').style.backgroundColor = color
+  card.style.backgroundColor = color
 }
 
 function newCard() {
@@ -29,7 +29,20 @@ function newCard() {
   } else {
     getGithubProfile(user)
   }
+
+  card.classList.remove('bounce')
+
+  setTimeout(() => {
+    card.classList.add('bounce')
+  }, 100)
+
+  removeAnimation()
 }
 
-// window.onload = newCard()
-// getGithubProfile(user)
+function removeAnimation() {
+  card.addEventListener('animationend', (e) => {
+    e.target.classList.remove('bounce')
+  })
+}
+
+removeAnimation()

@@ -7,7 +7,10 @@ function getGithubProfile(user) {
   const profile = `https://api.github.com/users/${user}`
 
   fetch(profile)
-    .then(response => response.json())
+    .then(response => {
+      if (response.ok) return response.json()
+      throw new Error("Esse usuário não existe!")
+    })
     .then(data => {
       userLogin.innerHTML = `${data.name} (${data.login})`
       userImage.src = data.avatar_url
@@ -17,6 +20,7 @@ function getGithubProfile(user) {
       userCompany.innerHTML = data.company ? data.company : 'Não informado'
       userLocation.innerHTML = data.location ? data.location : 'Não informado'
     })
+    .catch(error => alert(error.message))
 }
 
 function randomColor() {

@@ -73,6 +73,9 @@ header {
   border-radius: 50%;
   border: 5px solid var(--img-profile);
   padding: 5px;
+}
+
+.fade-in {
   -webkit-animation: fade-in 1.2s cubic-bezier(0.390, 0.575, 0.565, 1.000) 0.5s both;
   animation: fade-in 1.2s cubic-bezier(0.390, 0.575, 0.565, 1.000) 0.5s both;
 }
@@ -88,8 +91,11 @@ header {
   position: absolute;
   bottom: 100px;
   text-align: start;
-  -webkit-animation: slide-in-left 0.5s cubic-bezier(0.250, 0.460, 0.450, 0.940) 0.3s both;
-  animation: slide-in-left 0.5s cubic-bezier(0.250, 0.460, 0.450, 0.940) 0.3s both;
+}
+
+.slide {
+  -webkit-animation: slide-in-left 0.5s cubic-bezier(0.250, 0.460, 0.450, 0.940) 0.5s both;
+  animation: slide-in-left 0.5s cubic-bezier(0.250, 0.460, 0.450, 0.940) 0.5s both;
 }
 
 .infos div>span {
@@ -112,6 +118,33 @@ footer span {
 
 .container-button {
   gap: 10px;
+}
+
+
+.modal {
+  position: absolute;
+  inset: 0 0 0 0;
+  z-index: 1;
+  display: grid;
+  place-items: center;
+  background-color: rgba(0, 0, 0, 0.7);
+}
+
+.modal-wrapper {
+  display: grid;
+  gap: 20px;
+}
+
+.modal-input {
+  height: 48px;
+  border-radius: 8px;
+  width: 250px;
+  padding-inline: 8px;
+  font-size: 16px;
+}
+
+.closed {
+  display: none;
 }
 
 button {

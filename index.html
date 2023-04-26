@@ -32,7 +32,7 @@
         </header>
 
         <section class="profile">
-          <img src="https://github.com/birobirobiro.png" id="userImage" alt="foto de perfil">
+          <img src="https://github.com/birobirobiro.png" id="userImage" alt="foto de perfil" class="fade-in">
         </section>
 
         <section class="infos">
@@ -77,9 +77,16 @@
         <button>Gerar background</button>
       </div>
 
-      <div class="button" onclick="newCard()">
+      <div class="button" onclick="openModal()">
         <button>Gerar meu card</button>
       </div>
+    </div>
+  </div>
+
+  <div class="modal closed">
+    <div class="modal-wrapper">
+      <input type="text" class="modal-input" placeholder="Github Username">
+      <button class="modal-btn">Enviar</button>
     </div>
   </div>
 </body>

@@ -1,5 +1,7 @@
 const user = 'maykbrito'
 const card = document.querySelector('.card')
+const cardInfos = document.querySelector('.infos')
+const profileImg = document.querySelector('.profile img')
 
 function getGithubProfile(user) {
   const profile = `https://api.github.com/users/${user}`
@@ -22,8 +24,17 @@ function randomColor() {
   card.style.backgroundColor = color
 }
 
-function newCard() {
-  const userInput = prompt('Digite seu usuário do Github:');
+function openModal() {
+  document.querySelector('.modal').classList.remove('closed')
+}
+
+function closeModal() {
+  document.querySelector('.modal').classList.add('closed')
+}
+
+function newCard(username) {
+  // const userInput = prompt('Digite seu usuário do Github:');
+  const userInput = username
   if (userInput) {
     getGithubProfile(userInput)
   } else {
@@ -36,13 +47,30 @@ function newCard() {
     card.classList.add('bounce')
   }, 100)
 
-  removeAnimation()
+  cardInfos.classList.remove('slide')
+  profileImg.classList.remove('fade-in')
+
+  resetAnimation()
+
+  openModal()
 }
 
-function removeAnimation() {
+function resetAnimation() {
+  setTimeout(() => {
+    cardInfos.classList.add('slide')
+    profileImg.classList.add('fade-in')
+  }, 100)
+
   card.addEventListener('animationend', (e) => {
     e.target.classList.remove('bounce')
   })
 }
 
-removeAnimation()
+document.querySelector('.modal-btn').addEventListener('click', () => {
+  const user = document.querySelector('.modal-input').value
+  newCard(user)
+  closeModal()
+  document.querySelector('.modal-input').value = ''
+})
+
+resetAnimation()

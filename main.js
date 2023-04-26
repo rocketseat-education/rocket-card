@@ -2,6 +2,7 @@ const user = 'maykbrito'
 const card = document.querySelector('.card')
 const cardInfos = document.querySelector('.infos')
 const profileImg = document.querySelector('.profile img')
+const modal = document.querySelector('.modal')
 
 function getGithubProfile(user) {
   const profile = `https://api.github.com/users/${user}`
@@ -9,7 +10,7 @@ function getGithubProfile(user) {
   fetch(profile)
     .then(response => {
       if (response.ok) return response.json()
-      throw new Error("Esse usuário não existe!")
+      throw new Error(`${user} não foi encontrado!`)
     })
     .then(data => {
       userLogin.innerHTML = `${data.name} (${data.login})`
@@ -26,18 +27,19 @@ function getGithubProfile(user) {
 function randomColor() {
   const color = "#" + (Math.round(Math.random() * 0XFFFFFF)).toString(16);
   card.style.backgroundColor = color
+  modal.style.backgroundColor = color + 'AA'
 }
 
 function openModal() {
-  document.querySelector('.modal').classList.remove('closed')
+  modal.classList.remove('closed')
+  document.querySelector('.modal-input').focus()
 }
 
 function closeModal() {
-  document.querySelector('.modal').classList.add('closed')
+  modal.classList.add('closed')
 }
 
 function newCard(username) {
-  // const userInput = prompt('Digite seu usuário do Github:');
   const userInput = username
   if (userInput) {
     getGithubProfile(userInput)
@@ -46,35 +48,29 @@ function newCard(username) {
   }
 
   card.classList.remove('bounce')
-
-  setTimeout(() => {
-    card.classList.add('bounce')
-  }, 100)
-
   cardInfos.classList.remove('slide')
   profileImg.classList.remove('fade-in')
 
-  resetAnimation()
-
-  openModal()
-}
-
-function resetAnimation() {
   setTimeout(() => {
+    card.classList.add('bounce')
     cardInfos.classList.add('slide')
     profileImg.classList.add('fade-in')
   }, 100)
 
-  card.addEventListener('animationend', (e) => {
-    e.target.classList.remove('bounce')
-  })
+  openModal()
 }
 
-document.querySelector('.modal-btn').addEventListener('click', () => {
+function getUsername() {
   const user = document.querySelector('.modal-input').value
   newCard(user)
-  closeModal()
   document.querySelector('.modal-input').value = ''
+  closeModal()
+}
+
+modal.addEventListener('keydown', (e) => {
+  if (e.key === "Escape") closeModal()
+  if (e.key === "Enter") getUsername()
 })
 
-resetAnimation()
+document.querySelector('.modal-btn').onclick = getUsername
+document.querySelector('.modal-close').onclick = closeModal

@@ -124,10 +124,10 @@ footer span {
 .modal {
   position: absolute;
   inset: 0 0 0 0;
-  z-index: 1;
   display: grid;
   place-items: center;
-  background-color: rgba(0, 0, 0, 0.7);
+  background-color: rgba(0, 0, 0, 0.8);
+  backdrop-filter: grayscale(1);
 }
 
 .modal-wrapper {
@@ -141,6 +141,13 @@ footer span {
   width: 250px;
   padding-inline: 8px;
   font-size: 16px;
+}
+
+.modal-close {
+  font-size: 30px;
+  cursor: pointer;
+  display: inline-block;
+  text-align: center;
 }
 
 .closed {

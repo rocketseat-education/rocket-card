@@ -24,7 +24,7 @@
     <div class="card-container">
       <span>Compartilhe seu #rocketcard</span>
 
-      <div class="card" data-tilt>
+      <div class="card bounce" data-tilt>
         <header>
           <img src="./assets/rocketseat.png" alt="rocketseat">
 
@@ -32,10 +32,10 @@
         </header>
 
         <section class="profile">
-          <img src="https://github.com/birobirobiro.png" id="userImage" alt="foto de perfil">
+          <img src="https://github.com/birobirobiro.png" id="userImage" alt="foto de perfil" class="fade-in">
         </section>
 
-        <section class="infos">
+        <section class="infos slide">
           <div class="followers">
             <i class="ph-bold ph-user"></i>
             <span id="userFollowers">716 Seguidores</span>
@@ -77,9 +77,17 @@
         <button>Gerar background</button>
       </div>
 
-      <div class="button" onclick="newCard()">
+      <div class="button" onclick="openModal()">
         <button>Gerar meu card</button>
       </div>
+    </div>
+  </div>
+
+  <div class="modal closed">
+    <div class="modal-wrapper">
+      <span class="modal-close">🆇</span>
+      <input type="text" class="modal-input" placeholder="Github Username">
+      <button class="modal-btn">Enviar</button>
     </div>
   </div>
 </body>

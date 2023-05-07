@@ -49,7 +49,9 @@ body {
   height: 600px;
   position: relative;
   overflow: hidden;
-  -webkit-animation: bounce-in-top 1.1s both;
+}
+
+.bounce {
   animation: bounce-in-top 1.1s both;
 }
 
@@ -71,6 +73,9 @@ header {
   border-radius: 50%;
   border: 5px solid var(--img-profile);
   padding: 5px;
+}
+
+.fade-in {
   -webkit-animation: fade-in 1.2s cubic-bezier(0.390, 0.575, 0.565, 1.000) 0.5s both;
   animation: fade-in 1.2s cubic-bezier(0.390, 0.575, 0.565, 1.000) 0.5s both;
 }
@@ -86,8 +91,11 @@ header {
   position: absolute;
   bottom: 100px;
   text-align: start;
-  -webkit-animation: slide-in-left 0.5s cubic-bezier(0.250, 0.460, 0.450, 0.940) 0.3s both;
-  animation: slide-in-left 0.5s cubic-bezier(0.250, 0.460, 0.450, 0.940) 0.3s both;
+}
+
+.slide {
+  -webkit-animation: slide-in-left 0.5s cubic-bezier(0.250, 0.460, 0.450, 0.940) 0.5s both;
+  animation: slide-in-left 0.5s cubic-bezier(0.250, 0.460, 0.450, 0.940) 0.5s both;
 }
 
 .infos div>span {
@@ -112,6 +120,40 @@ footer span {
   gap: 10px;
 }
 
+
+.modal {
+  position: absolute;
+  inset: 0 0 0 0;
+  display: grid;
+  place-items: center;
+  background-color: rgba(0, 0, 0, 0.8);
+  backdrop-filter: grayscale(1);
+}
+
+.modal-wrapper {
+  display: grid;
+  gap: 20px;
+}
+
+.modal-input {
+  height: 48px;
+  border-radius: 8px;
+  width: 250px;
+  padding-inline: 8px;
+  font-size: 16px;
+}
+
+.modal-close {
+  font-size: 30px;
+  cursor: pointer;
+  display: inline-block;
+  text-align: center;
+}
+
+.closed {
+  display: none;
+}
+
 button {
   background-color: #000000;
   border: 2.5px solid var(--border-button);
@@ -129,7 +171,6 @@ button:hover {
   border: 2.5px solid #000;
 }
 
-/* 
 @-webkit-keyframes bounce-in-top {
   0% {
     -webkit-transform: translateY(-500px);
@@ -296,4 +337,4 @@ button:hover {
     transform: translateX(0);
     opacity: 1;
   }
-} */
+}

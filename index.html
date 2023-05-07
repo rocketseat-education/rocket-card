@@ -1,89 +1,99 @@
 <!DOCTYPE html>
 <html lang="pt-BR">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>RocketCard</title>
 
-<head>
-  <meta charset="UTF-8">
-  <meta http-equiv="X-UA-Compatible" content="IE=edge">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>RocketCard</title>
+    <link rel="stylesheet" href="style.css" />
 
-  <link rel="stylesheet" href="style.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Prompt:wght@100;400;700&display=swap"
+      rel="stylesheet" />
 
-  <link rel="preconnect" href="https://fonts.googleapis.com">
-  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Prompt:wght@100;400;700&display=swap" rel="stylesheet">
+    <script src="https://unpkg.com/@phosphor-icons/web"></script>
 
-  <script src="https://unpkg.com/@phosphor-icons/web"></script>
+    <script src="./main.js" defer></script>
+  </head>
 
-  <script src="./main.js" defer></script>
+  <body>
+    <div class="container">
+      <div class="card-container">
+        <span>Compartilhe seu #rocketcard</span>
 
-</head>
+        <div class="card card-animation" data-tilt>
+          <header>
+            <img src="./assets/rocketseat.png" alt="rocketseat" />
 
-<body>
-  <div class="container">
-    <div class="card-container">
-      <span>Compartilhe seu #rocketcard</span>
+            <span class="username" id="userLogin">birobirobiro</span>
+          </header>
 
-      <div class="card" data-tilt>
-        <header>
-          <img src="./assets/rocketseat.png" alt="rocketseat">
+          <section class="profile">
+            <img
+              class="profile-img-animation"
+              src="https://github.com/birobirobiro.png"
+              id="userImage"
+              alt="foto de perfil" />
+          </section>
 
-          <span class="username" id="userLogin">birobirobiro</span>
-        </header>
+          <section class="infos profile-info-animation">
+            <div class="followers">
+              <i class="ph-bold ph-user"></i>
+              <span id="userFollowers">716 Seguidores</span>
+            </div>
 
-        <section class="profile">
-          <img src="https://github.com/birobirobiro.png" id="userImage" alt="foto de perfil">
-        </section>
+            <div class="following">
+              <i class="ph-bold ph-users"></i>
+              <span id="userFollowing">193 Seguindo</span>
+            </div>
 
-        <section class="infos">
-          <div class="followers">
-            <i class="ph-bold ph-user"></i>
-            <span id="userFollowers">716 Seguidores</span>
-          </div>
+            <div class="repositories">
+              <i class="ph-bold ph-book-bookmark"></i>
+              <span id="userRepositories">193 Repositórios</span>
+            </div>
 
-          <div class="following">
-            <i class="ph-bold ph-users"></i>
-            <span id="userFollowing">193 Seguindo</span>
-          </div>
+            <div class="work">
+              <i class="ph-bold ph-buildings"></i>
+              <span id="userCompany">Rocketseat</span>
+            </div>
 
-          <div class="repositories">
-            <i class="ph-bold ph-book-bookmark"></i>
-            <span id="userRepositories">193 Repositórios</span>
-          </div>
+            <div class="city">
+              <i class="ph-bold ph-map-pin"></i>
+              <span id="userLocation">Bebedouro</span>
+            </div>
+          </section>
 
-          <div class="work">
-            <i class="ph-bold ph-buildings"></i>
-            <span id="userCompany">Rocketseat</span>
-          </div>
+          <footer>
+            <img src="./assets/logo.png" alt="" />
 
-          <div class="city">
-            <i class="ph-bold ph-map-pin"></i>
-            <span id="userLocation">Bebedouro</span>
-          </div>
-        </section>
+            <span>Rocketcard</span>
+          </footer>
+        </div>
+      </div>
 
-        <footer>
-          <img src="./assets/logo.png" alt="">
+      <div class="container-button">
+        <span>Customizar Rocketcard</span>
 
-          <span>Rocketcard</span>
-        </footer>
+        <div class="button" onclick="randomColor()">
+          <button>Gerar background</button>
+        </div>
+
+        <div class="button" onclick="newCard()">
+          <button>Gerar meu card</button>
+        </div>
+      </div>
+      <div class="modal hidden">
+        <div class="wrap">
+          <h2>Digite seu nome de usuario</h2>
+          <input type="text" id="userID" />
+          <button id="modalBtn">Enviar</button>
+        </div>
       </div>
     </div>
+  </body>
 
-    <div class="container-button">
-      <span>Customizar Rocketcard</span>
-
-      <div class="button" onclick="randomColor()">
-        <button>Gerar background</button>
-      </div>
-
-      <div class="button" onclick="newCard()">
-        <button>Gerar meu card</button>
-      </div>
-    </div>
-  </div>
-</body>
-
-<script src="./vanilla-tilt.js"></script>
-
+  <script src="./vanilla-tilt.js"></script>
 </html>
